@@ -1,0 +1,100 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>Novex</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="styles.css" />
+
+<header class="topbar">
+  <button class="brand" id="home-btn" title="Home" aria-label="Go to home screen">
+    <span class="mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C12.5 8 16 11.5 22 12C16 12.5 12.5 16 12 22C11.5 16 8 12.5 2 12C8 11.5 11.5 8 12 2Z"/></svg>
+    </span>
+    <span class="wordmark">Novex</span>
+  </button>
+  <div class="actions">
+    <button id="new-all" class="iconbtn" title="New chat in all models" aria-label="New chat in all models">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
+    <button id="reload-all" class="iconbtn" title="Reload all models" aria-label="Reload all models">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+    </button>
+    <button id="theme" class="iconbtn" title="Toggle light / dark" aria-label="Toggle light or dark theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button id="settings-btn" class="iconbtn" title="Settings" aria-label="Open settings">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    </button>
+    <button id="dismiss" class="iconbtn" title="Hide window (Esc)" aria-label="Hide window">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="body">
+  <nav class="rail" id="rail" aria-label="Models"><!-- stack injected by renderer.js --></nav>
+  <section class="stage">
+    <div class="viewport" id="viewport">
+      <div class="loadbar" id="loadbar" aria-hidden="true"></div>
+
+      <div class="home active" id="home">
+        <div class="home-card">
+          <div class="home-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C12.5 8 16 11.5 22 12C16 12.5 12.5 16 12 22C11.5 16 8 12.5 2 12C8 11.5 11.5 8 12 2Z"/></svg>
+          </div>
+          <h1 class="home-title">Novex</h1>
+          <p class="home-desc">Type one prompt and Novex sends it to <span id="home-models">your models</span> at the same time. Then toggle between them on the left to compare each answer.</p>
+          <ol class="home-steps">
+            <li><span class="step-n">1</span><span>Open a model on the left and sign in — first time only.</span></li>
+            <li><span class="step-n">2</span><span>Type a prompt below; it goes to all of them at once.</span></li>
+            <li><span class="step-n">3</span><span>Toggle between models to read each answer.</span></li>
+          </ol>
+          <div class="home-chips" id="home-chips"></div>
+        </div>
+      </div>
+
+      <div class="settings" id="settings">
+        <div class="settings-card">
+          <h2 class="settings-title">Settings</h2>
+          <section class="set-group">
+            <label class="set-label">Appearance</label>
+            <div class="seg" id="theme-seg">
+              <button data-theme="system">System</button>
+              <button data-theme="light">Light</button>
+              <button data-theme="dark">Dark</button>
+            </div>
+          </section>
+          <section class="set-group">
+            <label class="set-label">Global shortcut</label>
+            <select id="shortcut-select" class="set-select"></select>
+            <p class="set-hint">Press this anywhere to show or hide Novex.</p>
+          </section>
+          <section class="set-group">
+            <label class="set-label">Send prompts to</label>
+            <div class="check-list" id="targets-list"></div>
+            <p class="set-hint">Only these models receive a broadcast from the composer.</p>
+          </section>
+        </div>
+      </div>
+
+      <!-- one webview per model injected by renderer.js -->
+    </div>
+    <footer class="composer">
+      <div class="composer-inner">
+        <textarea id="prompt" rows="1" placeholder="Send one prompt to all models…" autofocus></textarea>
+        <button id="send" class="send" title="Send (Enter)" aria-label="Send">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+        </button>
+      </div>
+    </footer>
+  </section>
+</div>
+
+<div id="status" class="status" aria-live="polite"></div>
+
+<script src="services.js"></script>
+<script src="renderer.js"></script>

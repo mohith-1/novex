@@ -1,0 +1,24 @@
+{
+  "name": "novex",
+  "version": "1.0.0",
+  "description": "A summonable side-by-side AI chat browser. Type once, ask everyone.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --mac"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.local.novex",
+    "productName": "Novex",
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": "dmg"
+    }
+  }
+}
