@@ -9,9 +9,8 @@ stay signed into your own accounts and keep every feature (file uploads, code
 tools, image generation, and whatever the providers ship next). There are no
 API keys and no middleman.
 
-![Novex](docs/screenshot.png)
 
-> Replace `docs/screenshot.png` with your own screenshot, or delete this line.
+![interface](<Screenshot 2026-06-01 104842.png>)
 
 ---
 
@@ -84,7 +83,7 @@ per model.
 
 When you type a prompt and hit Enter, Novex injects a tiny script into each
 model's own page that types your prompt into that site's input box and presses
-send — exactly what your hands would do. Because these are real browser views
+send exactly what your hands would do. Because these are real browser views
 (not iframes), the providers' anti-embedding headers don't apply, and because
 you're using the real sites, you keep all of their native features.
 
@@ -199,7 +198,7 @@ and no telemetry.
   Fonts.
 - **The model providers see what you send them.** Anything you submit to
   ChatGPT, Claude, Gemini, or Perplexity is governed by that provider's own
-  privacy policy and terms — just as if you used their site directly.
+  privacy policy and terms just as if you used their site directly.
 
 To wipe local data, sign out inside each model's page, or delete Novex's folder
 in your OS user-data directory.
@@ -212,7 +211,7 @@ Everything user-facing is in **Settings** (the gear icon): theme, global
 shortcut, and which models receive a broadcast.
 
 To change the models themselves — add, remove, reorder, or fix a provider after
-a site change — edit **`services.js`**. Each model entry holds its name, URL,
+a site change edit **`services.js`**. Each model entry holds its name, URL,
 and the page selectors used to find its input box and send button, with several
 fallbacks each. If one model ever stops receiving prompts, update that model's
 selector there; no other file needs to change.
@@ -246,7 +245,7 @@ OS warning.
   `index (1).html` or `.txt` extensions) and that the project is not inside a
   OneDrive-synced folder. Open DevTools (`Ctrl/Cmd + Shift + I`) -> Console to
   see the specific error.
-- **Global shortcut doesn't work.** Another app may already use it — change it
+- **Global shortcut doesn't work.** Another app may already use itch ange it
   in Settings. On macOS, grant Accessibility / Input Monitoring permission.
 - **Theme won't switch.** Pick a fixed Light or Dark mode in Settings rather
   than System.
